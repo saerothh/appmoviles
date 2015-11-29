@@ -8,6 +8,7 @@
                 </div>
             {% endif %}
             <h1>{{ Movil.modelo }}</h1>
+            <a href="{% url 'movil_edit' pk=Movil.pk %}">Editar</a>
             <p>{{ Movil.text|linebreaks }}</p>
         </div>
     {% endblock %}
