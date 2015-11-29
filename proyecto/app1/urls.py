@@ -18,5 +18,6 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.post_list),
+    url(r'^$', views.movil_list),
+    url(r'^movil/(?P<pk>[0-9]+)/$', views.movil_detail),
 ]

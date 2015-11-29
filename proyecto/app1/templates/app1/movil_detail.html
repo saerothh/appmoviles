@@ -1,0 +1,13 @@
+{% extends 'app1/base.html' %}
+
+    {% block content %}
+        <div class="movil">
+            {% if Movil.fecha_lanzamiento %}
+                <div class="date">
+                    {{ Movil.fecha_lanzamiento }}
+                </div>
+            {% endif %}
+            <h1>{{ Movil.modelo }}</h1>
+            <p>{{ Movil.text|linebreaks }}</p>
+        </div>
+    {% endblock %}
