@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.utils import timezone
 from .models import Movil
 from django.shortcuts import render, get_object_or_404
