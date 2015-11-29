@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils import timezone
 from .models import Movil
 from django.shortcuts import render, get_object_or_404
+from .forms import MovilForm
+from django.shortcuts import redirect
+
 
 # Create your views here.
 def movil_list(request):
@@ -11,3 +14,13 @@ def movil_list(request):
 def movil_detail(request, pk):
         moviles = get_object_or_404(Movil, pk=pk)
         return render(request, 'app1/movil_detail.html', {'Movil': moviles})
+
+def movil_new(request):
+    if request.method == "POST":
+        form = MovilForm(request.POST)
+        if form.is_valid():
+           movil = form.save()
+           return redirect ('app1.views.movil_detail', pk=movil.pk)
+    else:
+        form = MovilForm()
+    return render (request, 'app1/movil_edit.html', {'form': form})

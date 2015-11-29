@@ -20,4 +20,5 @@ from . import views
 urlpatterns = [
     url(r'^$', views.movil_list),
     url(r'^movil/(?P<pk>[0-9]+)/$', views.movil_detail),
+    url(r'^movil/new/$', views.movil_new, name='movil_new'),
 ]
