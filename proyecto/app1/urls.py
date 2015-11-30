@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^movil/(?P<pk>[0-9]+)/$', views.movil_detail),
     url(r'^movil/new/', views.movil_new, name='movil_new'),
     url(r'^movil/(?P<pk>[0-9]+)/edit/$', views.movil_edit, name='movil_edit'),
+    url(r'^movil/(?P<pk>[0-9]+)/remove/$', views.movil_remove, name='movil_remove'),
 ]
