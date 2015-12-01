@@ -7,7 +7,15 @@
  <body>
     <div>
         <h1><a href="/">Pagina de móviles</a></h1>
-        <h2><a href="{%url 'app1.views.movil_new'%}"> Nuevo Movil</a></h2>
+    </div>
+
+    <div>
+        {% if user.is_authenticated %}
+        <p class="top-menu">Hola {{ user.username }}<small>(<a href="{% url 'django.contrib.auth.views.logout' %}">Log out</a>)</small></p>
+        <p><a href="{% url 'app1.views.movil_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a></p>
+        {% else %}
+        <a href="{% url 'django.contrib.auth.views.login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+        {% endif %}
     </div>
 
  {%block content%}
