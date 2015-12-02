@@ -5,18 +5,25 @@
   <title>Página de móviles</title>
  </head>
  <body>
+
+    <div>
+      <strong>Menu:</strong>
+      <ul>
+	{% if user.is_authenticated %}
+	<li><a href="{% url 'account_email' %}">Cambiar E-mail</a></li>
+	<li><a href="{% url 'account_logout' %}">Logout</a></li>
+	{% else %}
+	<li><a href="{% url 'account_login' %}">Login</a></li>
+	<li><a href="{% url 'account_signup' %}">Regístrate</a></li>
+	{% endif %}
+      </ul>
+    </div>
+
     <div>
         <h1><a href="/">Pagina de móviles</a></h1>
     </div>
 
-    <div>
-        {% if user.is_authenticated %}
-        <p class="top-menu">Hola {{ user.username }}<small>(<a href="{% url 'django.contrib.auth.views.logout' %}">Log out</a>)</small></p>
-        <p><a href="{% url 'app1.views.movil_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a></p>
-        {% else %}
-        <a href="{% url 'django.contrib.auth.views.login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
-        {% endif %}
-    </div>
+
 
  {%block content%}
  {%endblock%}
