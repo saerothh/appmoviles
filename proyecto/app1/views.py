@@ -28,7 +28,7 @@ def movil_new(request):
       else:
          form = MovilForm()
     else:
-       return HttpResponse("No tienes permiso para crear elementos.")
+       return HttpResponse("No tienes permisos para realizar esta acción.")
     return render (request, 'app1/movil_edit.html', {'form': form})
 
 @login_required
@@ -43,7 +43,7 @@ def movil_edit(request, pk):
       else:
           form = MovilForm(instance=movil)
     else:
-       return HttpResponse("No tienes permiso para editar elementos.")
+       return HttpResponse("No tienes permisos para realizar esta acción.")
     return render(request, 'app1/movil_edit.html', {'form': form})
 
 @login_required
@@ -52,7 +52,7 @@ def movil_remove(request, pk):
       movil = get_object_or_404(Movil, pk=pk)
       movil.delete()
     else:
-       return HttpResponse("No tienes permiso para eliminar elementos.")
+       return HttpResponse("No tienes permisos para realizar esta acción.")
     return redirect('app1.views.movil_list')
 
 """

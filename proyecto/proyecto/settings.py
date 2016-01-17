@@ -45,6 +45,8 @@ INSTALLED_APPS = (
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+# App para añadir comentarios
+    'django_comments',
 # Mis aplicaciones
     'app1'
 )

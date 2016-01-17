@@ -3,6 +3,8 @@
 
 {% block content %}
 
+       <h1><a href="{% url 'app1.views.movil_new'%}">Nuevo</a></h1>
+
 {% for Movil in moviles %}
      <div>
       <h1><a href="{% url 'app1.views.movil_detail' pk=Movil.pk %}">{{ Movil.modelo }}</a></h1>

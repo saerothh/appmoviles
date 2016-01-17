@@ -1,0 +1,19 @@
+{% block  comentarios %}
+{% load comments %}
+
+{% if entradas  %}
+    <h3>Comentarios:</h3>
+
+    <p>{% render_comment_list for entradas %}</p>
+
+    </ul>
+{% else %}
+
+    <p>Se el primero en dejar tu comentario.</p>
+
+   {% endif %}
+
+   <h4>Deja un comentario</h4>
+{% render_comment_form for entradas %}
+
+{%endblock%}
