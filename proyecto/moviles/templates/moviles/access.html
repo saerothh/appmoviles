@@ -1,0 +1,17 @@
+{% extends 'moviles/base.html'%}
+
+
+{% block titulo %}Ingresa a la web{% endblock %}
+
+
+{% block encabezado %}
+	<h1>Ingresa</h1>
+{% endblock %}
+
+
+{% block contenido %}
+	<form id='formulario' method='post' action =''>{% csrf_token %}
+		<table>{{formulario}}</table>
+		<p><input type='submit' value='Ingresar'/></p>
+	</forms>
+{% endblock %}

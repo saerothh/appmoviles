@@ -1,0 +1,15 @@
+{% extends 'moviles/base.html' %}
+
+{% block titulo %}Cambia tu valoración{% endblock %}
+
+
+{% block encabezado %} <h1>Cambia tu valoración</h1>{% endblock %}
+
+
+
+{% block contenido %}
+  <form id='formulario' method='post' action=''>{% csrf_token %}
+    {{formulario.as_p}}
+    <p><input type='submit' value='Confirmar'/></p>
+  </form>
+{% endblock %}

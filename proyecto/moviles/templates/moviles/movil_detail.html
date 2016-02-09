@@ -1,0 +1,52 @@
+{% extends 'moviles/base.html' %}
+
+{% block titulo %}Características{% endblock %}
+
+
+{% block encabezado%}<h1>Características</h1>{% endblock %}
+
+
+
+{% block contenido %}
+	<div class="caracteristicas">
+		{% if Movil.fecha_lanzamiento %}
+			<div class="date">
+				{{ Movil.fecha_lanzamiento }}
+			</div>
+		{% endif %}
+
+	<h1>{{ Movil.fabricante }} {{ Movil.nombre }}</h1>
+
+		<div>
+			<p>Version del SO: {{ Movil.versionOS }}</p>
+			<p>Tamaño de Pantalla: {{ Movil.tam_pantalla }}</p>
+			<p>Memoria Ram: {{ Movil.mem_ram }}</p>
+			<p>MicroSD: {{ Movil.microsd }}</p>
+			<p>Fecha de lanzamiento: {{ Movil.fecha_lanzamiento }}</p>
+			{% if Valoracion and Usuario%}
+				<p>Valoracion: {{ Valoracion.valoracion }}</p>
+				<a href="{% url 'val_edit' pk=Valoracion.pk %}">Editar valoracion</a>
+			{% elif Usuario %}
+				<p>Sin valoraciones</p> <a href="{% url 'val_new' pk=Movil.pk %}">Crear valoracion</a>
+			{% endif %}
+
+		</div>
+
+		<div>
+			{% if Usuario%}
+				<a href="{% url 'movil_comenta' pk=Movil.pk %}">Comentar</a>
+			{% endif %}
+			<p>{{ Movil.text|linebreaks }}</p>
+		</div>
+
+		<div id='comentarios'>
+		<h2>Comentarios</h2>
+			{% for item in Comentarios %}
+				<p>{{item.texto}} comentado por {{item.nombre}}</p>
+			{% empty %}
+				<p>Sin comentarios registrados</p>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
+

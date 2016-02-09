@@ -1,3 +1,4 @@
+
 """
 Django settings for proyecto project.
 
@@ -13,9 +14,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -39,16 +38,16 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+# 'django.contrib.comments para cajon de comentarios
+#    'django_comments',
 # Django.contrib.sites requerido por Django-allauth, debe estar el primero.
-    'django.contrib.sites',
+#    'django.contrib.sites',
 # Apps para Django-allauth
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-# App para añadir comentarios
-    'django_comments',
+#    'allauth',
+#    'allauth.account',
+#    'allauth.socialaccount',
 # Mis aplicaciones
-    'app1'
+    'moviles'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -87,7 +86,7 @@ AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
     # `allauth` specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
+#    'allauth.account.auth_backends.AuthenticationBackend',
 )
 
 WSGI_APPLICATION = 'proyecto.wsgi.application'
@@ -123,8 +122,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'moviles/static'),
+)
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
 
 # Requerido por django.contrib.sites
 SITE_ID = 1
-

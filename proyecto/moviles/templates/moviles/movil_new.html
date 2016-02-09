@@ -1,0 +1,17 @@
+{% extends 'moviles/base.html' %}
+
+{% block titulo %}Edición{% endblock %}
+
+
+{% block encabezado%}<h1>Edición</h1>{% endblock %}
+
+
+{% block contenido %}
+<div class="caracteristicas">
+	<h4>Característitas</h4>
+	<form method="POST" class="movil-form">{% csrf_token %}
+		{{ movil_form.as_p }}
+			<button type="submit" class="save btn btn-default">Guardar</button>
+	</form>
+</div>
+{% endblock %}

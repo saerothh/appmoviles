@@ -1,0 +1,19 @@
+
+{% extends 'moviles/base.html' %}
+
+
+{% block titulo %}Últimos añadidos{% endblock %}
+
+
+{% block encabezado %}<h1>Últimos añadidos</h1>{% endblock %}
+
+
+{% block contenido %}
+	<p>Bienvenido {{Usuario.username|upper}}, la ultima vez que visitaste la pagina fue el {{Usuario.last_login}}.</p>
+	<p>Eres miembro desde el {{Usuario.date_joined}}</p>
+	{% for Movil in moviles %}
+	<div id="lista">
+		<p><a href="{% url 'moviles.views.movil_detail' pk=Movil.pk %}">{{ Movil.fabricante }} {{ Movil.nombre }}</a></p>
+	</div>
+	{% endfor %}
+{% endblock %}

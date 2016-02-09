@@ -1,0 +1,44 @@
+{% load staticfiles %}
+
+<html>
+	<head>
+<!--		<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">-->
+		<link type="text/css" rel="stylesheet" href="{% static 'css/main.css' %}">
+		<title>MovilZone</title>
+	</head>
+
+
+
+	<body>
+		
+		<header id="cabecera">
+		
+			<div id="titulo""><h1><u>MovilZone</u></h1></div>
+				<div id="menu"><strong>Menu:</strong>
+					{% if Usuario %}
+						<p><a href="{% url 'close' %}">Cierre de sesión</a>
+					{% else %}
+						<p><a href="{% url 'user_new' %}">Crear usuario</a>
+						<p><a href="{% url 'access' %}">Ingresar</a>
+					{% endif %}
+
+				</div>
+			</div>
+		</header>
+		<header id="navegacion">
+					<p class="juntos"><a href="{% url 'inicio' %}">Inicio</a></p>
+					<p class="juntos"><a href='/'>Moviles registrados</a></p>
+		</header>
+		<div id="bloque_base">
+		{% block encabezado %}{% endblock %}
+
+		{% block contenido %}{% endblock %}
+		</div>
+		<div id="pie">
+			<p class="juntos"><a href="/">Inicio</a></p>
+			<p class="juntos"><a href="/">Contacto</a></p>
+		</div>
+	</body>
+
+
+</html>

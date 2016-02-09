@@ -1,0 +1,17 @@
+
+{% extends 'moviles/base.html' %}
+
+
+{% block titulo %}Lista aleatoria{% endblock %}
+
+
+{% block encabezado %}<h1>Lista aleatoria</h1>{% endblock %}
+
+
+{% block contenido %}
+	{% for Movil in moviles %}
+	<div id="lista">
+		<p><a href="{% url 'moviles.views.movil_detail' pk=Movil.pk %}">{{ Movil.fabricante }} {{ Movil.nombre }}</a></p>
+	</div>
+	{% endfor %}
+{% endblock %}
