@@ -14,4 +14,5 @@ urlpatterns = [
 	url(r'^movil/(?P<pk>[0-9]+)/comenta/$', views.nuevo_comentario, name='movil_comenta'),
 	url(r'^valoracion/(?P<pk>[0-9]+)/edit/$', views.editar_valoracion, name='val_edit'),
 	url(r'^valoracion/(?P<pk>[0-9]+)/crear/$', views.crear_valoracion, name='val_new'),
+	url(r'^media/(?P<path>.*)$', 'django.views.static.serve',{'document_root':settings.MEDIA_ROOT,})
 ]

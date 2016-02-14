@@ -14,6 +14,11 @@ valoraciones = (
 	(5,'5'),
 )
 
+BOOL_CHOICES = (
+	(True, 'Si'),
+	(False, 'No')
+)
+
 class Movil(models.Model):
 	nombre = models.CharField(max_length=30, unique=True)
 	fecha_lanzamiento = models.DateField(default=timezone.now)
@@ -21,9 +26,8 @@ class Movil(models.Model):
 	versionOS = models.CharField(max_length=30)
 	tam_pantalla = models.CharField(max_length=4)
 	mem_ram = models.CharField(default = '--', max_length=10)
-	microsd = models.BooleanField(default=False)
-#	imagen = models.ImageField(upload_to='static/imagenes/', blank = True)
-#	valoracion_total = models.PositiveIntegerField(default = 0)
+	microsd = models.BooleanField(choices=BOOL_CHOICES)
+	image = models.ImageField(upload_to='moviles', blank= True)
 
 	class Meta:
 		verbose_name = 'Movil'

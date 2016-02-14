@@ -31,7 +31,7 @@ def movil_list(request):
 def movil_list_random(request):
 	moviles = Movil.objects.filter()
 	#Para listas aleatorias
-	moviles = sample(list(moviles), 2)
+	moviles = sample(list(moviles), 9)
 	return render(request, 'moviles/movil_list_random.html',{'moviles': moviles})
 
 
@@ -44,7 +44,7 @@ def movil_detail(request, pk):
 		valormovil = get_object_or_404(Valoracion, pk= valoraciones)
 		return render(request, 'moviles/movil_detail.html',{'Movil': movil,'Comentarios': comentarios, 'Valoracion': valormovil, 'Usuario':request.user})
 	except:
-		return render(request, 'moviles/movil_detail.html',{'Movil': movil,'Comentarios': comentarios})
+		return render(request, 'moviles/movil_detail.html',{'Movil': movil,'Comentarios': comentarios, 'Usuario':request.user})
 
 
 #Creacion de nuevo usuario

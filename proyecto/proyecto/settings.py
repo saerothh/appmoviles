@@ -30,7 +30,6 @@ ALLOWED_HOSTS = []
 LOGIN_REDIRECT_URL = '/'
 
 # Application definition
-
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,14 +37,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-# 'django.contrib.comments para cajon de comentarios
-#    'django_comments',
-# Django.contrib.sites requerido por Django-allauth, debe estar el primero.
-#    'django.contrib.sites',
-# Apps para Django-allauth
-#    'allauth',
-#    'allauth.account',
-#    'allauth.socialaccount',
 # Mis aplicaciones
     'moviles'
 )
@@ -83,10 +74,9 @@ TEMPLATES = [
 ]
 
 AUTHENTICATION_BACKENDS = (
-    # Needed to login by username in Django admin, regardless of `allauth`
+# Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
-    # `allauth` specific authentication methods, such as login by e-mail
-#    'allauth.account.auth_backends.AuthenticationBackend',
+
 )
 
 WSGI_APPLICATION = 'proyecto.wsgi.application'
@@ -106,7 +96,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'es-es'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'Europe/Madrid'
 
@@ -129,6 +119,9 @@ STATICFILES_DIRS = (
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
-
 # Requerido por django.contrib.sites
 SITE_ID = 1
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'carga')
+
+MEDIA_URL = 'http://127.0.0.1:7000/media/'

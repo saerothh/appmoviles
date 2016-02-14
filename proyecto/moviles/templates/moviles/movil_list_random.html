@@ -11,7 +11,8 @@
 {% block contenido %}
 	{% for Movil in moviles %}
 	<div id="lista">
-		<p><a href="{% url 'moviles.views.movil_detail' pk=Movil.pk %}">{{ Movil.fabricante }} {{ Movil.nombre }}</a></p>
+		<img src='/media/{{Movil.image}}'>
+		<p><a href="{% url 'access' %}">{{ Movil.fabricante }} {{ Movil.nombre }}</a></p>
 	</div>
 	{% endfor %}
 {% endblock %}

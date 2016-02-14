@@ -7,7 +7,7 @@
 
 
 {% block contenido %}
-	<form id='formulario' method='post' action=''>{% csrf_token %}
+	<form class='caracteristicas' method='post' action=''>{% csrf_token %}
 		{{formulario.as_p}}
 		<p><input type='submit' value='Confirmar'/></p>
 	</form>

@@ -13,7 +13,8 @@
 	<p>Eres miembro desde el {{Usuario.date_joined}}</p>
 	{% for Movil in moviles %}
 	<div id="lista">
-		<p><a href="{% url 'moviles.views.movil_detail' pk=Movil.pk %}">{{ Movil.fabricante }} {{ Movil.nombre }}</a></p>
+		<img src='/media/{{Movil.image}}'>
+		<p id="titulo_bajo"><a href="{% url 'moviles.views.movil_detail' pk=Movil.pk %}">{{ Movil.fabricante }} {{ Movil.nombre }}</a></p>
 	</div>
 	{% endfor %}
 {% endblock %}

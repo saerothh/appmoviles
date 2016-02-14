@@ -2,21 +2,12 @@
 
 {% block titulo %}Características{% endblock %}
 
-
 {% block encabezado%}<h1>Características</h1>{% endblock %}
-
-
 
 {% block contenido %}
 	<div class="caracteristicas">
-		{% if Movil.fecha_lanzamiento %}
-			<div class="date">
-				{{ Movil.fecha_lanzamiento }}
-			</div>
-		{% endif %}
-
-	<h1>{{ Movil.fabricante }} {{ Movil.nombre }}</h1>
-
+		<h1>{{ Movil.fabricante }} {{ Movil.nombre }}</h1>
+		<img src='/media/{{Movil.image}}'>
 		<div>
 			<p>Version del SO: {{ Movil.versionOS }}</p>
 			<p>Tamaño de Pantalla: {{ Movil.tam_pantalla }}</p>
@@ -29,16 +20,13 @@
 			{% elif Usuario %}
 				<p>Sin valoraciones</p> <a href="{% url 'val_new' pk=Movil.pk %}">Crear valoracion</a>
 			{% endif %}
-
 		</div>
-
 		<div>
 			{% if Usuario%}
 				<a href="{% url 'movil_comenta' pk=Movil.pk %}">Comentar</a>
 			{% endif %}
 			<p>{{ Movil.text|linebreaks }}</p>
 		</div>
-
 		<div id='comentarios'>
 		<h2>Comentarios</h2>
 			{% for item in Comentarios %}
